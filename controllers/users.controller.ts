@@ -3,15 +3,15 @@ import { addUser, getAllUsers, getUser, updateUser } from '../services/users.ser
 
 const usersController = express.Router();
 
-usersController.get('/', (req:express.Request, res: express.Response) => res.json(getAllUsers()));
+usersController.get('/', async (req:express.Request, res: express.Response) => res.json(await getAllUsers()));
 
-usersController.get('/:id', (req:express.Request, res: express.Response) => {
-    const user = getUser(req.params.id);
+usersController.get('/:id', async (req:express.Request, res: express.Response) => {
+    const user = await getUser(req.params.id);
     user ? res.json(user) : res.sendStatus(404);
 });
 
-usersController.post('/', (req:express.Request, res: express.Response) => res.json(addUser(req.body)));
+usersController.post('/', async (req:express.Request, res: express.Response) => res.json(await addUser(req.body)));
 
-usersController.put('/:id', (req:express.Request, res: express.Response) => res.json(updateUser(req.body)));
+usersController.put('/:id', async (req:express.Request, res: express.Response) => res.json(await updateUser(req.body)));
 
 export default usersController;
