@@ -1,7 +1,5 @@
 import { GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull } from 'graphql';
 
-//TYPES
-
 export const UserType = new GraphQLObjectType({
     name: 'User',
     fields: () => ({

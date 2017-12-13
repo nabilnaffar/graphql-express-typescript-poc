@@ -1,7 +1,7 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
-import schema from './schema/users.schema';
+import schema from './schema';
 import usersController from './controllers/users.controller';
 import * as expressGraphQL from 'express-graphql';
 

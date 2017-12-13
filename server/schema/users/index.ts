@@ -1,6 +1,6 @@
 import { GraphQLSchema } from 'graphql';
-import query from './queries/users.queries';
-import mutation from './mutations/users.mutations';
+import query from './users.queries';
+import mutation from './users.mutations';
 
 //SCHEMA
 

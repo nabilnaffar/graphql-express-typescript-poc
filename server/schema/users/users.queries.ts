@@ -1,11 +1,11 @@
 import { GraphQLSchema, GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull } from 'graphql';
 import * as usersService from '../../services/users.service';
-import { UsersType, UserType } from '../types/users.type';
+import { UsersType, UserType } from './users.types';
 
 //Queries
 
 const query = new GraphQLObjectType({
-    name: 'RootQueryType',
+    name: 'UsersQueries',
     fields: () => ({
         users: {
             type: UsersType,

@@ -1,6 +1,6 @@
 import { GraphQLSchema, GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull } from 'graphql';
 import * as usersService from '../../services/users.service';
-import { UserType } from '../types/users.type';
+import { UserType } from './users.types';
 
 //Mutations
 
