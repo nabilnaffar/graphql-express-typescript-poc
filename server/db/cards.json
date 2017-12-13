@@ -1,0 +1,10 @@
+{
+    "cards": [
+        {
+            "color": "RED",
+            "number": 1,
+            "suit": 1,
+            "id": "@@@"
+        }
+    ]
+}

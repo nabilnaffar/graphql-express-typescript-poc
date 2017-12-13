@@ -1,43 +1,28 @@
+import axios from 'axios';
+const baseUrl = 'http://localhost:3002/users';
+
 export interface IUser{
     id?: string;
     name: string;
     age: number;
 }
 
-export interface UserServiceApi{
-    getAllUsers():Array<IUser>;
-    getUser(id:string):IUser;
-    addUser(IUser):void;
-}
-
-
-const mydb = [
-    {id: 'a', name: 'Nabil', age: 29}
-] as Array<IUser>;
-
 export function getAllUsers():Promise<Array<IUser>>{
-    return Promise.resolve(mydb);
+    return axios.get<Promise<Array<IUser>>>(baseUrl).then(r => r.data);
 }
 
 export function getUser(id: string):Promise<IUser>{
-    return Promise.resolve(mydb.find(u => u.id === id));
+    return axios.get<Promise<IUser>>(`${baseUrl}/${id}`).then(r => r.data);
 }
 
-export function addUser(data: IUser):Promise<IUser>{
-    const user = {
+export function addUser(user: IUser):Promise<IUser>{
+    const data = {
         id: Math.random().toString(36),
-        ...data
+        ...user
     }
-    mydb.push(user);
-    return Promise.resolve(user);
+    return axios.post<Promise<IUser>>(baseUrl, data).then(r => r.data);
 }
 
 export function updateUser(data: IUser):Promise<IUser>{
-    const user = mydb.find(u => u.id === data.id);
-    if(!user){
-        return;
-    }
-    user.age = data.age;
-    user.name = data.name;
-    return Promise.resolve(user);
+    return axios.post<Promise<IUser>>(`${baseUrl}/${data.id}`, {data}).then(r => r.data);
 }

@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": "a1",
+      "name": "Nabil",
+      "age": 29
+    },
+    {
+      "id": "0.4et8le9j6ku",
+      "name": "Yoni",
+      "age": 200
+    },
+    {
+      "id": "0.lz1i6u92fbr",
+      "name": "Danny",
+      "age": 10000
+    }
+  ]
+}

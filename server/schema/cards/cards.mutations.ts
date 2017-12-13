@@ -1,5 +1,6 @@
 import { GraphQLSchema, GraphQLObjectType, GraphQLID, GraphQLString, GraphQLInt, GraphQLList, GraphQLNonNull } from 'graphql';
 import { cardsType, cardType, suitTypes } from './cards.types';
+import * as cardsService from '../../services/cards.service';
 
 const mutation = new GraphQLObjectType({
     name: 'CardsMutation',
@@ -11,7 +12,7 @@ const mutation = new GraphQLObjectType({
                 number: {type: new GraphQLNonNull(GraphQLInt)},
                 suit:  {type: new GraphQLNonNull(suitTypes)}
             },
-            resolve: (parentVal, args) => 'TBD'
+            resolve: (parentVal, args) => cardsService.addCard({color: args.color, number: args.number, suit: args.suit})
         }
     }
 })
