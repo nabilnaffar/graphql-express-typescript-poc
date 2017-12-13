@@ -6,10 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"nodemon index.js\"",
+    "start:client": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"tsc -w\" \"nodemon index.js\"",
     "server:users": "json-server --watch ./db/users.json --port 3002",
     "server:cards": "json-server --watch ./db/cards.json --port 3004",
-    "server:mock": "concurrently -k -p \"[{name}]\" -n \"Users,Cards\" -c \"yellow.bold,cyan.bold\" \"yarn server:users\" \"yarn server:cards\""
+    "start:ms-mock": "concurrently -k -p \"[{name}]\" -n \"Users,Cards\" -c \"yellow.bold,cyan.bold\" \"yarn server:users\" \"yarn server:cards\"",
+    "start": "concurrently -k -p \"[{name}]\" -n \"TS,Node,UsersMS,CardsMS\" -c \"yellow.bold,cyan.bold,blue.bold,red.bold\" \"tsc -w\" \"nodemon index.js\" \"yarn server:users\" \"yarn server:cards\""
   },
   "author": "",
   "license": "ISC",
